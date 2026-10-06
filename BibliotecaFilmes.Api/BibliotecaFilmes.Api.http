@@ -1,0 +1,6 @@
+@BibliotecaFilmes.Api_HostAddress = http://localhost:5122
+
+GET {{BibliotecaFilmes.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
