@@ -1,0 +1,87 @@
+# Guia de Prompts Passo a Passo - API de Filmes Favoritos em C# (.NET 8)
+
+Prompt 1 - .gitignore
+
+Estou criando uma API RESTful simples de Filmes em C# , com repositório em memória.
+
+Gere um arquivo .gitignore para .NET / Visual Studio / VS Code.
+
+Organize por seções com comentários.
+
+Apenas gere o arquivo .gitignore.
+
+---
+
+Prompt 2 - Estrutura e Solução .NET
+
+Estou criando uma API RESTful simples de Filmes Favoritos em C# .
+
+Preciso da estrutura inicial da aplicação e do projeto de testes em C#.
+
+Gere os comandos do terminal .NET CLI (`dotnet new`) para criar a solução (.sln), o projeto Web API, o projeto de testes xUnit e os arquivos appsettings.json.
+
+---
+
+Prompt 3 - README.md
+
+Quero criar uma API RESTful simples de Filmes Favoritos em C#, utilizando repositório em memória (ConcurrentDictionary), sem dependência de banco de dados ou ORM externo.
+
+Gere um arquivo README.md descrevendo o projeto, pré-requisitos, instruções de compilação, execução, acesso ao Swagger e execução dos testes.
+
+Este arquivo deve explicar o projeto, ser um Markdown simples, organizado por seções e com tom técnico.
+
+Apenas gere o arquivo README.md.
+
+---
+
+Prompt 4 - Iniciar Projeto C# e Instalar Pacientes/Dependências
+
+Quero iniciar o projeto C# e baixar as poucas bibliotecas necessárias.
+
+Revise as bibliotecas necessárias para os testes e documentação (xUnit, FluentAssertions, Microsoft.AspNetCore.Mvc.Testing e Swashbuckle).
+
+Foque apenas no essencial.
+
+Gere os comandos .NET CLI para instalar as dependências e execute.
+
+---
+
+Prompt 5 - Entidade, DTOs e Repositório em Memória
+
+O ambiente .NET foi configurado.
+
+Crie a entidade `Movie` (Id, Title, Director, ReleaseYear, Genre, Rating [1 a 5], CreatedAt, UpdatedAt), os DTOs de requisição/resposta e a interface/implementação do `InMemoryMovieRepository`.
+
+Mantenha o código o mais simples e limpo possível.
+
+---
+
+Prompt 6 - Controller, Regras de Negócio e Middleware de Erros
+
+Precisamos expor os endpoints HTTP e tratar erros na API de Filmes em C#.
+
+Implemente a `MoviesController` com as rotas REST (POST, GET com filtro/paginação, GET por id, PUT e DELETE) e a validação do Rating (1 a 5).
+
+Implemente um Middleware global simples para capturar exceções e retornar JSON. Registre tudo no `Program.cs`.
+
+---
+
+Prompt 7 - Testes Automatizados (xUnit)
+
+A API REST em C# está construída com repositório em memória.
+
+Crie os testes automatizados simples com xUnit e FluentAssertions: testes unitários para a regra do filme e testes de integração para as rotas HTTP.
+
+Mantenha a suíte enxuta e direta.
+
+---
+
+
+
+
+
+Prompt 8 - First Commit
+
+Adicionei a estrutura inicial, gitignore, readme e código funcional em C#.
+
+Inicie o git, gere um commit de uma linha seguindo a convenção Conventional Commits (`feat: inicializa api de filmes em csharp com repositorio em memoria`) e execute os comandos.
