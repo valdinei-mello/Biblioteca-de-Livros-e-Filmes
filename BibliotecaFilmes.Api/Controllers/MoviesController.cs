@@ -6,10 +6,14 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaFilmes.Api.Controllers;
 
+/// <summary>Expõe operações HTTP para gerenciar filmes favoritos.</summary>
 [ApiController]
 [Route("api/[controller]")]
 public sealed class MoviesController(IInMemoryMovieRepository repository) : ControllerBase
 {
+    /// <summary>Cadastra um filme favorito.</summary>
+    /// <param name="request">Dados do filme a cadastrar.</param>
+    /// <returns>O filme criado.</returns>
     [HttpPost]
     [ProducesResponseType<MovieResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -28,6 +32,12 @@ public sealed class MoviesController(IInMemoryMovieRepository repository) : Cont
         return CreatedAtAction(nameof(GetById), new { id = movie.Id }, response);
     }
 
+    /// <summary>Lista filmes favoritos com filtros opcionais e paginação.</summary>
+    /// <param name="title">Texto opcional para buscar no título.</param>
+    /// <param name="genre">Gênero opcional para filtrar.</param>
+    /// <param name="page">Número da página, iniciando em 1.</param>
+    /// <param name="pageSize">Quantidade de itens por página, entre 1 e 100.</param>
+    /// <returns>Filmes correspondentes e metadados da página.</returns>
     [HttpGet]
     [ProducesResponseType<PagedMoviesResponse>(StatusCodes.Status200OK)]
     public ActionResult<PagedMoviesResponse> GetAll(
@@ -67,6 +77,9 @@ public sealed class MoviesController(IInMemoryMovieRepository repository) : Cont
         return Ok(response);
     }
 
+    /// <summary>Busca um filme pelo identificador.</summary>
+    /// <param name="id">Identificador do filme.</param>
+    /// <returns>O filme encontrado ou HTTP 404.</returns>
     [HttpGet("{id:guid}")]
     [ProducesResponseType<MovieResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -76,6 +89,10 @@ public sealed class MoviesController(IInMemoryMovieRepository repository) : Cont
         return movie is null ? NotFound() : Ok(ToResponse(movie));
     }
 
+    /// <summary>Atualiza os dados de um filme existente.</summary>
+    /// <param name="id">Identificador do filme.</param>
+    /// <param name="request">Dados atualizados do filme.</param>
+    /// <returns>O filme atualizado ou HTTP 404.</returns>
     [HttpPut("{id:guid}")]
     [ProducesResponseType<MovieResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -101,6 +118,9 @@ public sealed class MoviesController(IInMemoryMovieRepository repository) : Cont
         return updatedMovie is null ? NotFound() : Ok(ToResponse(updatedMovie));
     }
 
+    /// <summary>Remove um filme pelo identificador.</summary>
+    /// <param name="id">Identificador do filme.</param>
+    /// <returns>HTTP 204 se removido ou HTTP 404 se não existir.</returns>
     [HttpDelete("{id:guid}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]

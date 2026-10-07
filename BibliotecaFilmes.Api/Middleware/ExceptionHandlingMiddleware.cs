@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace BibliotecaFilmes.Api.Middleware;
 
+/// <summary>Converte exceções não tratadas em respostas JSON HTTP 500.</summary>
 public sealed class ExceptionHandlingMiddleware(
     RequestDelegate next,
     ILogger<ExceptionHandlingMiddleware> logger)
 {
+    /// <summary>Executa a requisição e trata exceções não capturadas.</summary>
+    /// <param name="context">Contexto HTTP atual.</param>
     public async Task InvokeAsync(HttpContext context)
     {
         try

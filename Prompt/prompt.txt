@@ -76,12 +76,17 @@ Mantenha a suíte enxuta e direta.
 
 ---
 
-
-
-
-
 Prompt 8 - First Commit
 
 Adicionei a estrutura inicial, gitignore, readme e código funcional em C#.
 
 Inicie o git, gere um commit de uma linha seguindo a convenção Conventional Commits (`feat: inicializa api de filmes em csharp com repositorio em memoria`) e execute os comandos.
+
+Prompt 9  - Doc String
+
+Adcione doc string onde for necessario.
+
+ssimples e direta
+
+
+
